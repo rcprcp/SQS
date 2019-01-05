@@ -13,9 +13,9 @@ public class SQS {
 
   public static void main(String... args) {
     final String BASE_NAME = "bob-test";
-    final int NUM_QUEUES = 5;
+    final int NUM_QUEUES = 50;
     final int NUM_MESSAGES = 10;
-    final int NUM_BATCHES = 400;
+    final int NUM_BATCHES = 1000;
     final long start = System.currentTimeMillis();
     final AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
 
@@ -36,7 +36,9 @@ public class SQS {
     // make some data (SQS only supports 10 per batch):
     final List<SendMessageBatchRequestEntry> entries = new ArrayList<>();
     for (int i = 0; i < NUM_MESSAGES; i++) {
-      entries.add(new SendMessageBatchRequestEntry("msg" + i, i + " Hello World message."));
+      String json = "{\"id\": %d, \"msg\": \"Hello World message %d\"}";
+      String str = String.format(json, i, i);
+      entries.add(new SendMessageBatchRequestEntry("msg" + i, str));
     }
 
     // batch post to queue
