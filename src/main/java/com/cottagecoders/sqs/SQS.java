@@ -12,10 +12,12 @@ import java.util.List;
 public class SQS {
 
   public static void main(String... args) {
+
     final String BASE_NAME = "bob-test";
     final int NUM_QUEUES = 50;
-    final int NUM_MESSAGES = 10;
+    final int NUM_MESSAGES_PER_BATCH = 10;
     final int NUM_BATCHES = 1000;
+
     final long start = System.currentTimeMillis();
     final AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
 

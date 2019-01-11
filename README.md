@@ -1,7 +1,7 @@
 # SQS
 Sample to write batches to Amazon SQS
 
-Adjust the parameters in the Java code as needed.  This program does not use any command line args.   
+Adjust the parameters in the Java code as needed. This program does not use any command line args.   
 
 To use this you'll need to have credentials available for the AWS API code.  There are two methods to provide the configuration information and your credentials - one is to set shell environment variables. 
 
@@ -16,3 +16,5 @@ Create another file: `credentials` it's contents should look like this:
     [default]
     aws_access_key_id = (key)
     aws_secret_access_key = (secret)
+    
+You should be able to run the program, then you should be able to verify the records are in the queue with the AWS SQS console. 
