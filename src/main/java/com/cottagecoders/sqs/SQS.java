@@ -13,8 +13,8 @@ public class SQS {
 
   public static void main(String... args) {
 
-    final String BASE_NAME = "bob-test";
-    final int NUM_QUEUES = 50;
+    final String BASE_NAME = "palak-test";
+    final int NUM_QUEUES = 2;
     final int NUM_MESSAGES_PER_BATCH = 10;
     final int NUM_BATCHES = 1000;
 
@@ -37,7 +37,7 @@ public class SQS {
 
     // make some data (SQS only supports 10 per batch):
     final List<SendMessageBatchRequestEntry> entries = new ArrayList<>();
-    for (int i = 0; i < NUM_MESSAGES; i++) {
+    for (int i = 0; i < NUM_MESSAGES_PER_BATCH; i++) {
       String json = "{\"id\": %d, \"msg\": \"Hello World message %d\"}";
       String str = String.format(json, i, i);
       entries.add(new SendMessageBatchRequestEntry("msg" + i, str));
