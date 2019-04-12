@@ -17,4 +17,13 @@ Create another file: `credentials` it's contents should look like this:
     aws_access_key_id = (key)
     aws_secret_access_key = (secret)
     
-You should be able to run the program, then you should be able to verify the records are in the queue with the AWS SQS console. 
+Build and run the program, then you should be able to verify the records are in the queue with the AWS SQS console. 
+
+    git clone http://github.com/rcprcp/SQS.git
+    cd SQS 
+    mvn clean package
+    cd target
+    java -jar SQS-0.5-SNAPSHOT-jar-with-dependencies.jar
+    
+Enjoy!
+    
